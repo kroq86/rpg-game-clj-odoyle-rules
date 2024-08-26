@@ -46,7 +46,8 @@
      :then
      (swap! game-state assoc :status :over)
      (cond
-       (and (<= ?player-health 0) (<= ?enemy-health 0)) (swap! game-state assoc :winner :tie)
+       (and
+       (<= ?player-health 0) (<= ?enemy-health 0)) (swap! game-state assoc :winner :tie)
        (<= ?player-health 0) (swap! game-state assoc :winner :enemy)
        (<= ?enemy-health 0) (swap! game-state assoc :winner :player))]}))
 
@@ -67,7 +68,8 @@
           :player (println "Player wins!")
           :enemy (println "Enemy wins!")
           :tie (println "It's a tie!"))
-        (println "Final health - Player:" (:player-health @game-state) "Enemy:" (:enemy-health @game-state)))
+        (println "Final health - Player:" (:player-health @game-state)
+                 "Enemy:" (:enemy-health @game-state)))
       (do
         (println "---")
         (recur new-session)))))
