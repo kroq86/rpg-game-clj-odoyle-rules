@@ -46,8 +46,8 @@
      :then
      (swap! game-state assoc :status :over)
      (cond
-       (and
-       (<= ?player-health 0) (<= ?enemy-health 0)) (swap! game-state assoc :winner :tie)
+       (and (<= ?player-health 0) (<= ?enemy-health 0))
+       (swap! game-state assoc :winner :tie)
        (<= ?player-health 0) (swap! game-state assoc :winner :enemy)
        (<= ?enemy-health 0) (swap! game-state assoc :winner :player))]}))
 
